@@ -22,8 +22,10 @@ ext {
     okHttp = '3.8.0'
     retrofit2 = '2.3.0'
     gson = '2.8.1'
-    autoValue = '1.4.1'
-    autoValueGson = '0.5.0'
+    autoValue = '1.2'
+    autoValueAnnotation = '1.2-update1'
+    autoValueGson = '0.3.1'
+    autoValueParcel = '0.2.2'
     options = '1.3.0'
 
     // Instrumentation
@@ -63,6 +65,8 @@ ext {
 
             autoValue                       : "com.google.auto.value:auto-value:${autoValue}",
             autoValueGson                   : "com.ryanharter.auto.value:auto-value-gson:${autoValueGson}",
+            autoValueParcel                 : "com.ryanharter.auto.value:auto-value-parcel:${autoValueParcel}",
+            autoValueAnnotation             : "com.jakewharton.auto.value:auto-value-annotations:${autoValueAnnotation}",
 
             options                         : "com.github.tomaszpolanski:options:${options}",
 

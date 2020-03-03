@@ -1,4 +1,7 @@
 apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
 
 android {
     def androidVersions = rootProject.ext.android
@@ -7,6 +10,12 @@ android {
     buildToolsVersion androidVersions.buildToolsVersion
 
     defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+
         minSdkVersion androidVersions.minSdkVersion
         targetSdkVersion androidVersions.targetSdkVersion
 
@@ -79,10 +88,13 @@ dependencies {
     api commonDependencies.gson
 
     // Auto-Value
-    compileOnly commonDependencies.autoValue
-    annotationProcessor commonDependencies.autoValue
+    kaptTest commonDependencies.autoValue
     testAnnotationProcessor commonDependencies.autoValue
     androidTestAnnotationProcessor commonDependencies.autoValue
+    kapt commonDependencies.autoValue
+    compileOnly commonDependencies.autoValueAnnotation
+    kapt commonDependencies.autoValueParcel
+    kapt commonDependencies.autoValueGson
 
     // AutoValue Type Adapter
     compileOnly commonDependencies.autoValueGson
@@ -111,4 +123,11 @@ dependencies {
     testImplementation commonTestDependencies.junit
     testImplementation commonTestDependencies.assertj
     testImplementation commonTestDependencies.mockito
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+    mavenLocal()
 }
