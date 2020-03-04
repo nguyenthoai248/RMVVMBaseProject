@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     def androidVersions = rootProject.ext.android
 
@@ -39,7 +41,7 @@ dependencies {
 
     // Dagger 2
     implementation commonDependencies.dagger2
-    annotationProcessor commonDependencies.dagger2Compiler
+    kapt commonDependencies.dagger2Compiler
     testAnnotationProcessor commonDependencies.dagger2Compiler
     compileOnly commonDependencies.javaxAnnotation
 
