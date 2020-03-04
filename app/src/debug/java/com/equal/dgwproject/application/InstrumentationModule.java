@@ -17,7 +17,7 @@ import com.equal.dgwproject.application.NetworkModule.NetworkInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 @Module
-class InstrumentationModule {
+public class InstrumentationModule {
 
     @Provides
     @NetworkInterceptor

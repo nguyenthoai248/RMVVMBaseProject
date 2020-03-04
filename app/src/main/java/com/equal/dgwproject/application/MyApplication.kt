@@ -22,11 +22,11 @@ class MyApplication : Application() {
         installFonts()
     }
 
-    fun getComponent(): ApplicationComponent {
+    private fun getComponent(): ApplicationComponent {
         if (component == null) {
             component = DaggerApplicationComponent.builder().application(this).build()
         }
-        return component
+        return component as ApplicationComponent
     }
 
     private fun installFonts() {
