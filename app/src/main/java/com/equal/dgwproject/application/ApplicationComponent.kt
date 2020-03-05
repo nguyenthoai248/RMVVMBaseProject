@@ -12,7 +12,7 @@ import dagger.Component
  * Created by Thoai Nguyen on 3/4/2020.
  */
 @Singleton
-@Component(modules = [ApplicationModule::class, NetworkModule::class])
+@Component(modules = [ApplicationModule::class, NetworkModule::class, DataModule::class, ViewModelModule::class])
 interface ApplicationComponent {
 
     fun inject(app: MyApplication)
@@ -22,9 +22,12 @@ interface ApplicationComponent {
     @Component.Builder
     interface Builder {
 
+        fun build(): ApplicationComponent
         @BindsInstance
         fun application(app: MyApplication): Builder
-
-        fun build(): ApplicationComponent
+        fun networkModule(networkModule: NetworkModule): Builder
+        fun dataModule(mData: DataModule): Builder
+        fun viewmodelModule(viewModelModule: ViewModelModule): Builder
+        fun instrumentModule(instrumentModule: InstrumentationModule): Builder
     }
 }

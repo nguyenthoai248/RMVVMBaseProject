@@ -13,10 +13,6 @@ import dagger.Provides
 @Module
 class ApplicationModule {
 
-    @ForApplication
-    @Provides
-    internal fun provideApplicationContext(app: MyApplication): Context {
-        return app.applicationContext
-    }
+
 }
 
