@@ -65,12 +65,7 @@ dependencies {
     testImplementation commonTestDependencies.architectureComponentsTesting
 
     // Dagger 2
-    api commonDependencies.dagger2
-    kapt commonDependencies.dagger2Compiler
     implementation commonDependencies.daggerAndroid
-    implementation commonDependencies.daggerProcessor
-    testAnnotationProcessor commonDependencies.dagger2Compiler
-    compileOnly commonDependencies.javaxAnnotation
 
     // RxJava 2
     api commonDependencies.rxJava2
