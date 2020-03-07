@@ -1,2 +1,2 @@
-include ':app', ':base', ':samplemodule'
+include ':app', ':base'
 rootProject.name='DGWProject'

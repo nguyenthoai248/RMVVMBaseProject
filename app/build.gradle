@@ -37,7 +37,6 @@ dependencies {
     def developmentDependencies = rootProject.ext.developmentDependencies
 
     implementation project(':base')
-//    implementation project(':credit')
 
     // Dagger 2
     implementation commonDependencies.dagger2

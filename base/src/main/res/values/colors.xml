@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorPrimary">#FFEC4E</color>
+    <color name="colorPrimaryDark">#D6BE00</color>
+    <color name="colorAccent">@color/mint</color>
+    <color name="colorAccentTransparent">@color/mint_80</color>
 
     <color name="mainColor_primary_darker">@color/mint</color>
     <color name="mainColor_secondary">@color/mint_dark</color>
@@ -14,9 +16,6 @@
     <color name="statistics_red_selected">@color/red_light</color>
 
     <color name="default_item">@color/white</color>
-
-    <color name="colorAccent">@color/mint</color>
-    <color name="colorAccentTransparent">@color/mint_80</color>
 
     <color name="textColorPrimary">@color/grey_dark</color>
     <color name="textColorSecondary">@color/grey</color>
@@ -58,9 +57,8 @@
     <color name="grey_e2">#e2e2e2</color>
     <color name="grey_f6">#f6f6f6</color>
     <color name="grey_66">#666666</color>
-
-    <color name="mint">#3BD0D6</color>
-    <color name="mint_80">#803BD0D6</color>
+    <color name="mint">#D81B60</color>
+    <color name="mint_80">#80D81B60</color>
     <color name="mint_dark">#34b7bc</color>
     <color name="mint_bright">#D3F5F6</color>
 

@@ -42,19 +42,19 @@ dependencies {
     def developmentDependencies = rootProject.ext.developmentDependencies
     def commonTestDependencies = rootProject.ext.commonTestDependencies
 
-    api 'androidx.appcompat:appcompat:1.1.0'
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
     application project(':app')
-//    feature project(":credit")
 
     // Android
-    api commonDependencies.supportAppCompatV7
+    api commonDependencies.supportAppCompat
     api commonDependencies.supportV13
     api commonDependencies.supportAnnotation
     api commonDependencies.supportCardView
     api commonDependencies.supportRecyclerView
     api commonDependencies.constraintLayout
     api commonDependencies.supportDesign
+    api commonDependencies.androidxPaging
+    api commonDependencies.navigationFragment
+    api commonDependencies.navigationUI
 
     // Calligraphy
     implementation commonDependencies.calligraphy
@@ -67,6 +67,8 @@ dependencies {
     // Dagger 2
     api commonDependencies.dagger2
     kapt commonDependencies.dagger2Compiler
+    implementation commonDependencies.daggerAndroid
+    implementation commonDependencies.daggerProcessor
     testAnnotationProcessor commonDependencies.dagger2Compiler
     compileOnly commonDependencies.javaxAnnotation
 
@@ -125,10 +127,10 @@ dependencies {
     testImplementation commonTestDependencies.junit
     testImplementation commonTestDependencies.assertj
     testImplementation commonTestDependencies.mockito
-    api "androidx.core:core-ktx:+"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    feature project(":samplemodule")
+
+    api commonDependencies.coreKtx
+    api commonDependencies.viewModelKtx
+    implementation commonDependencies.kotlin
 }
 repositories {
     mavenCentral()

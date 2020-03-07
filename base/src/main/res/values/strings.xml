@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">Drink Go Where</string>
+    <string name="retry">Retry</string>
+    <string name="error_happened">There is a problem. Please try again.</string>
 </resources>

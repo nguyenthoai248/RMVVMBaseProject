@@ -12,7 +12,7 @@
 
         <!-- Main Theme Colours -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/grey_e2</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:textColorPrimary">@color/grey_dark</item>
