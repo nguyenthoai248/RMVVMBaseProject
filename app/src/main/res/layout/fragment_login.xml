@@ -1,124 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/map"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleY="1.2"
-        android:scaleX="1.2"
-        />
+        android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/image_blur"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blur_76"
-        />
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/map"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/icon_dgw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dgw_icon_high_res"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        />
+            android:id="@+id/image_blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blur_76" />
 
-    <TextView
-        android:id="@+id/tv_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_layout_wellcomeback"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ll_phone"
-        app:layout_constraintTop_toBottomOf="@id/icon_dgw"
-        app:layout_constraintVertical_bias="0.2"
-        android:padding="10dp"
-        android:singleLine="false"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="60px"
-        />
-
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="200dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/ll_phone"
-        android:background="@drawable/corner_primary_shape"
-        app:layout_constraintBottom_toTopOf="@id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@id/icon_dgw"
-        android:drawableStart="@drawable/globe"
-        android:padding="4dp"
-        app:layout_constraintVertical_bias="0.85"
-        >
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/circle_shape"
-            android:src="@drawable/globe"
-            android:padding="5dp"
-            />
-        <TextView
-            android:id="@+id/btn_phone"
+    <ImageView
+            android:id="@+id/icon_dgw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_layout_phone"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:textSize="50px"
+            android:src="@drawable/dgw_icon_high_res"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:singleLine="false"
+            android:text="@string/login_layout_wellcomeback"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="60px"
             android:textStyle="bold"
-            android:background="@color/transparent"
-            />
+            app:layout_constraintBottom_toTopOf="@id/ll_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_dgw"
+            app:layout_constraintVertical_bias="0.2" />
+
+    <RelativeLayout
+            android:id="@+id/ll_phone"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_primary_shape"
+            android:drawableStart="@drawable/globe"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_dgw"
+            app:layout_constraintVertical_bias="0.85">
+
+        <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/circle_shape"
+                android:padding="5dp"
+                android:src="@drawable/globe" />
+
+        <TextView
+                android:id="@+id/btn_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="@string/login_layout_phone"
+                android:textSize="50px"
+                android:textStyle="bold" />
 
     </RelativeLayout>
 
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="@string/login_layout_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btn_create_account"
-        android:background="@drawable/corner_secondary_shape"
-        android:stateListAnimator="@null"
-        android:textColor="@android:color/white"
-        android:textSize="50px"
-        android:textAllCaps="false"
-        />
+            android:id="@+id/btnLogin"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_secondary_shape"
+            android:stateListAnimator="@null"
+            android:text="@string/login_layout_login"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="50px"
+            app:layout_constraintBottom_toTopOf="@+id/btn_create_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     <Button
-        android:id="@+id/btn_create_account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:stateListAnimator="@null"
-        android:background="@color/transparent"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30px"
-        android:textAllCaps="false"
-        android:text="@string/login_layout_create_account"
-        />
+            android:id="@+id/btn_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:stateListAnimator="@null"
+            android:text="@string/login_layout_create_account"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

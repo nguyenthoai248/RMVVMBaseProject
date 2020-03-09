@@ -21,15 +21,12 @@ class LoginFragment : BaseInjectingFragment() {
     private lateinit var viewModel: LoginViewModel
     override fun onInject() {
         val activity: BaseInjectingActivity<*> = activity as BaseInjectingActivity<*>
-        val componentCreator: LoginComponentCreator = activity.getComponent() as LoginComponentCreator
+        val componentCreator: LoginComponentCreator =
+            activity.getComponent() as LoginComponentCreator
         componentCreator.createLoginComponent().inject(this)
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_login
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,7 +41,8 @@ class LoginFragment : BaseInjectingFragment() {
             viewModel.actionStream.onNext(LoginClickedAction("test", "test"))
         }
     }
-//
+
+    //
     private fun handleFailure(@StringRes errorMessage: Int, @Suppress("UNUSED_PARAMETER") error: Throwable) {
 //        showFailure(errorMessage)
 //        { viewModel.actionStream.onNext(GetAlbumAction(true)) }

@@ -16,8 +16,8 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract val layoutId: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setContentView(layoutId)
         super.onCreate(savedInstanceState)
+        setContentView(layoutId)
     }
 
     override fun attachBaseContext(newBase: Context) {
