@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name" translatable="false">Drink Go Where</string>
+    <string name="app_name_title" translatable="false">Drink Go Where</string>
     <string name="retry">Retry</string>
     <string name="error_happened">There is a problem. Please try again.</string>
+    <string name="title_base">BaseModule</string>
+    <string name="login_layout_login">Login</string>
+    <string name="login_layout_wellcomeback">hey there!</string>
+    <string name="login_layout_phone">phone</string>
+    <string name="login_layout_create_account"> <u>Create account</u> </string>
+    <string name="signup_layout_phone">phone</string>
+    <string name="signup_layout_birthday">birth day</string>
+    <string name="signup_layout_signup">sign up</string>
 </resources>

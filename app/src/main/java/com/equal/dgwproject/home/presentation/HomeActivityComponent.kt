@@ -2,6 +2,7 @@ package com.equal.dgwproject.home.presentation
 
 import com.equal.base.injection.modules.ActivityModule
 import com.equal.base.injection.scopes.ActivityScope
+import com.equal.dgwproject.login.presentation.di.LoginComponent
 
 import dagger.Subcomponent
 
@@ -11,7 +12,7 @@ import dagger.Subcomponent
 
 @ActivityScope
 @Subcomponent(modules = [ActivityModule::class])
-interface HomeActivityComponent {
+interface HomeActivityComponent : LoginComponent.LoginComponentCreator{
 
     fun inject(homeActivity: HomeActivity)
 }

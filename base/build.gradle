@@ -126,6 +126,8 @@ dependencies {
     api commonDependencies.coreKtx
     api commonDependencies.viewModelKtx
     implementation commonDependencies.kotlin
+
+    implementation commonDependencies.timber
 }
 repositories {
     mavenCentral()

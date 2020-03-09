@@ -1,9 +1,13 @@
 package com.equal.dgwproject.application
 
+import android.content.Context
 import com.equal.base.BuildConfig
+import com.equal.base.data.Api
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.TypeAdapterFactory
+import com.squareup.picasso.OkHttp3Downloader
+import com.squareup.picasso.Picasso
 
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
@@ -16,6 +20,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -23,57 +28,71 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Created by Thoai Nguyen on 3/4/2020.
  */
-@Module(includes = [InstrumentationModule::class])
-object NetworkModule {
+@Module
+class NetworkModule {
 
-    private const val API_URL = "API_URL"
+    private val baseUrl: String = "https://jsonplaceholder.typicode.com/"
+    private val apiKey: String = "api key"
 
-    @Qualifier
-    @Retention(RetentionPolicy.RUNTIME)
-    internal annotation class AppInterceptor
-
-    @Qualifier
-    @Retention(RetentionPolicy.RUNTIME)
-    internal annotation class NetworkInterceptor
-
-    @Provides
     @Singleton
-    fun provideN26Api(@Named(API_URL) baseUrl: String, gson: Gson, client: OkHttpClient): Retrofit {
-        return Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(client)
-            .baseUrl(baseUrl)
-            .build()
+    @Provides
+    fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
+
+    @Singleton
+    @Provides
+    fun providePicasso(context: Context): Picasso {
+        val downloader = OkHttp3Downloader(context, Long.MAX_VALUE)
+        val picasso = Picasso.Builder(context).downloader(downloader).build()
+        Picasso.setSingletonInstance(picasso)
+        return picasso
     }
 
-    @Provides
-    @Named(API_URL)
-    fun provideBaseUrl(): String {
-        return BuildConfig.N26_FAKE_API_URL
-    }
-
-    @Provides
     @Singleton
-    fun provideGson(typeAdapters: Set<TypeAdapterFactory>): Gson {
-        val builder = GsonBuilder()
+    @Provides
+    fun provideInterceptors(): ArrayList<Interceptor> {
 
-        for (factory in typeAdapters) {
-            builder.registerTypeAdapterFactory(factory)
+        val interceptors = arrayListOf<Interceptor>()
+
+        val keyInterceptor = Interceptor { chain ->
+
+            val original = chain.request()
+            val originalHttpUrl = original.url()
+
+            val url = originalHttpUrl.newBuilder()
+                .addQueryParameter("api_key", apiKey)
+                .build()
+
+            val requestBuilder = original.newBuilder()
+                .url(url)
+
+            val request = requestBuilder.build()
+            return@Interceptor chain.proceed(request)
         }
 
-        return builder.create()
+        interceptors.add(keyInterceptor)
+        return interceptors
     }
 
-    @Provides
     @Singleton
-    fun provideApiOkHttpClient(
-        @AppInterceptor appInterceptor: Set<Interceptor>,
-        @NetworkInterceptor networkInterceptor: Set<Interceptor>
-    ): OkHttpClient {
-        val okBuilder = OkHttpClient.Builder()
-        okBuilder.interceptors().addAll(appInterceptor)
-        okBuilder.networkInterceptors().addAll(networkInterceptor)
+    @Provides
+    fun provideRetrofit(interceptors: ArrayList<Interceptor>): Retrofit {
 
-        return okBuilder.build()
+        val clientBuilder = OkHttpClient.Builder()
+        if (!interceptors.isEmpty()) {
+            interceptors.forEach { interceptor ->
+                clientBuilder.addInterceptor(interceptor)
+            }
+        }
+        if (BuildConfig.DEBUG) {
+            val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
+            clientBuilder.addInterceptor(loggingInterceptor)
+        }
+
+        return Retrofit.Builder()
+            .client(clientBuilder.build())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(baseUrl)
+            .build()
     }
 }

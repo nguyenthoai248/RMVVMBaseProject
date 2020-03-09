@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'io.objectbox'
+
 android {
     def androidVersions = rootProject.ext.android
 
@@ -39,6 +41,7 @@ dependencies {
     implementation project(':base')
 
     // Dagger 2
+    implementation commonDependencies.daggerAndroid
     implementation commonDependencies.dagger2
     kapt commonDependencies.dagger2Compiler
     testAnnotationProcessor commonDependencies.dagger2Compiler
@@ -60,5 +63,15 @@ dependencies {
     debugImplementation developmentDependencies.chuck
     releaseImplementation developmentDependencies.chuckNoOp
     testImplementation developmentDependencies.chuckNoOp
+
+    // ObjectBox
+    implementation commonDependencies.objectboxAndroid
+    kapt commonDependencies.objectboxProcessor
+    implementation commonDependencies.objectboxKotlin
+
+    implementation commonDependencies.timber
+
+    // Picasso
+    kapt commonDependencies.picasso
 }
 

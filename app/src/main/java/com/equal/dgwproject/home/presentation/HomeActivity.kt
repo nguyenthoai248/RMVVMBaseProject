@@ -7,12 +7,21 @@ import com.equal.base.injection.modules.ActivityModule
 import com.equal.base.presentation.BaseInjectingActivity
 import com.equal.dgwproject.R
 import com.equal.dgwproject.application.MyApplication
+import com.equal.dgwproject.login.presentation.LoginFragment
+import polanski.option.Option
 
 class HomeActivity  : BaseInjectingActivity<HomeActivityComponent>() {
 
 
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Option.ofObj(savedInstanceState).ifNone { this.showLoginFragment() }
+    }
+
+    private fun showLoginFragment() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frame, LoginFragment())
+            .commit()
     }
 
     override fun onInject(@NonNull component: HomeActivityComponent) {

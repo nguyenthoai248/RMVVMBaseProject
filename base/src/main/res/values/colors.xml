@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFEC4E</color>
-    <color name="colorPrimaryDark">#D6BE00</color>
-    <color name="colorAccent">@color/mint</color>
+    <color name="colorPrimary">#7612CC</color>
+    <color name="colorPrimaryDark">#5A0BA2</color>
+    <color name="colorAccent">#AC1FF6</color>
+    <color name="colorSecondary">#AC1FF6</color>
     <color name="colorAccentTransparent">@color/mint_80</color>
+
+    <color name="blur_76">#C3FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
 
     <color name="mainColor_primary_darker">@color/mint</color>
     <color name="mainColor_secondary">@color/mint_dark</color>
